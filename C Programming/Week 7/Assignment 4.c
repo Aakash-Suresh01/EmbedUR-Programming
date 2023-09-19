@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[100]={0},substr[100][100]={0};
+    scanf("%[^\n]s", str);
+    int kg,max,min,i,j,a,maxIndex,minIndex;
+    while(str[kg]!='\0')
+    {
+        j=0;
+        while(str[kg]!=' '&&str[kg]!='\0'&&str[kg]!='.')
+        {
+            substr[i][j]=str[kg];
+            kg++;
+            j++;
+        }
+        substr[i][j]='\0';
+        i++;
+        if(str[kg]!='\0')
+        {
+            kg++;
+        }        
+    }
+    int len=i;
+    max=strlen(substr[0]);
+    min=strlen(substr[0]);
+    
+    for(i=0;i < len;i++)
+    {
+       a=strlen(substr[i]);
+       if(a > max)
+        {
+            max=a;
+            maxIndex=i;
+        }
+        if(a < min)
+        {
+            min=a;
+            minIndex=i;
+        }
+    }    
+    printf("Largest Word is: %s\nSmallest word is: %s\n",substr[maxIndex],substr[minIndex]);
+    return 0;
+}
